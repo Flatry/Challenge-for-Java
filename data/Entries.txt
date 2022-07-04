@@ -6,15 +6,7 @@
 2,Nemunas Karalius,1.521
 4,Jonas Andriulaitis,1
 5,Jonušas Kravickas,1,,
-,,,,,
-,,,
-
-zxcsdfsdfsd
-f sdfsd
-fsd
-f,sdfsd,f,sdf,sdf, sdfsd
-sd,fsdf,sdf2423424
-11231,, v11
-23
-123
-                         afsdf            , as,d a
+3,Nemunas Karalius,1.521
+3,Nemunas Karalius,1.521
+2,Nemunas Karalius,1.521
+3,Nemunas Karalius,1.521

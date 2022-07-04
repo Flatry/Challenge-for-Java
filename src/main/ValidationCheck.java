@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class ValidationCheck {
 	static String separator = ",";
 	public List<DataEntries> dataEntriesObj = new ArrayList<DataEntries>();
-	
+
 	private static void main(String[] args) {
 
 	}
@@ -88,7 +88,7 @@ public class ValidationCheck {
 
 		for (int i = 0; i < DataLines.size(); i++) { // adding all data
 			DataEntries da = new DataEntries();
-			da.AddDataEntries(i, DataLines.get(i), null, null);
+			da.AddDataEntries(i, DataLines.get(i), "", "");
 			dataEntriesObj.add(da);
 
 		}
@@ -127,24 +127,37 @@ public class ValidationCheck {
 
 		}
 
-		for (int i = 0; i < dataEntriesObj.size(); i++) { // Duplicate removal
+		for (int i = 0; i < dataEntriesObj.size(); i++) {
+
+			if (dataEntriesObj.get(i).getdataStatus() != "DECLINED") { //ID and Name check
+
+				String currentID = dataEntriesObj.get(i).getRawID();
+				String currentFullName = dataEntriesObj.get(i).getRawFullName();
+
+				for (int x = i + 1; x < dataEntriesObj.size(); x++) {
+					String checkID = dataEntriesObj.get(x).getRawID();
+					String checkFullName = dataEntriesObj.get(x).getRawFullName();
+					if (checkFullName.equals(currentFullName) && !checkID.equals(currentID)) {
+						dataEntriesObj.get(x).setdataComment("DIFERENT ID/SAME NAME");
+						dataEntriesObj.get(x).setdataStatus("DECLINED");
+
+					}
+
+				}
+
+			}
+
+		}
+
+		for (int i = 0; i < dataEntriesObj.size(); i++) { // Newest Entries check
 			if (dataEntriesObj.get(i).getdataStatus() != "DECLINED") {
 
 				for (int x = i + 1; x < dataEntriesObj.size(); x++) {
 					String currentID = dataEntriesObj.get(i).getRawID();
 					String checkID = dataEntriesObj.get(x).getRawID();
 
-					String currentFullName = dataEntriesObj.get(i).getRawFullName();
-					String checkFullName = dataEntriesObj.get(x).getRawFullName();
-
 					if (currentID.equals(checkID)) {
-						dataEntriesObj.get(i).setdataComment("DUBLICATE VALUE");
-						dataEntriesObj.get(i).setdataStatus("DECLINED");
-
-					}
-
-					if (currentFullName.equals(checkFullName)) {
-						dataEntriesObj.get(i).setdataComment("NAME / ID EXISTS");
+						dataEntriesObj.get(i).setdataComment("OLDER ID VALUE");
 						dataEntriesObj.get(i).setdataStatus("DECLINED");
 
 					}
@@ -156,7 +169,7 @@ public class ValidationCheck {
 		}
 
 		for (int i = 0; i < dataEntriesObj.size(); i++) { // Add approved entries
-			if (dataEntriesObj.get(i).getdataStatus() == null) {
+			if (dataEntriesObj.get(i).getdataStatus() == "") {
 
 				dataEntriesObj.get(i).setdataStatus("APPROVED");
 				dataEntriesObj.get(i).setdataComment("");
@@ -164,7 +177,6 @@ public class ValidationCheck {
 
 		}
 
-		
 		for (int a = 0; a < dataEntriesObj.size(); a++) { // Print Result
 			String dl = dataEntriesObj.get(a).getDataLine();
 			String ds = dataEntriesObj.get(a).getdataStatus();
@@ -173,13 +185,7 @@ public class ValidationCheck {
 			System.out.println(dl + " " + ds + " " + dc);
 
 		}
-		
-		
-		
 
 	}
 
-	
-
-	}
-
+}
