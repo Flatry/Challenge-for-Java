@@ -1,2 +1,2 @@
-java -jar Run02.jar
+java -jar Challenge_for_Java.jar
 PAUSE
