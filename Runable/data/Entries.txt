@@ -1,0 +1,19 @@
+3,tOMAS gORKA, 1.6
+1,Adrius Baranauskas,1.5648
+2,Justinas Indrasius,1,3124
+3,Nemunas Karalius,1.521
+1,Audrius Baranauskas,1.5648
+
+2,Nemunas Karalius,1.521
+4,Jonas Andriulaitis,1
+5,Jonušas Kravickas,1,,
+11a,Tomuss Gertus,1.2
+111,Nemunas Karalius,4.521
+111,Nemunas Karalius,0.521
+111,Nemunas Karalius,aaa
+111,Nemunas Karalius,1.521
+111,Nemunas Karąlius,1.521
+111,Nemunas KarąliusĘ,1.521
+111,Nemunas Karąliusπ,1.521
+11,Tomuss__Gertus,1.2
+11,Tomuss  Gertus,1.2
